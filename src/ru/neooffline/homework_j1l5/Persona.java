@@ -15,11 +15,23 @@ public class Persona {
     private String fullName;
     private String email;
     private long mobileNumber;
-    private short minAge = 18;
-    private short maxAge = 80;
+    private int minAge = 18;
+    private int maxAge = 80;
     private int age;
+    private int minWorkCost = 15000;
+    private int maxWorkCost = 250000;
+    private int workCost;
     private static int count = 0;
-    private int personaCount = 0;
+    private int personaCount;
+
+
+    public int getWorkCost() {
+        return workCost;
+    }
+
+    public void setWorkCost(int workCost) {
+        this.workCost = workCost;
+    }
 
     public int getPersonaCount() {
         return personaCount;
@@ -86,7 +98,7 @@ public class Persona {
     public boolean checkNumber(long mobileNumber){ //Проверка корректности номера если будет нужно
         return Long.toString(mobileNumber).length()==11;
     }
-    Persona(String[] names, String[] families, String[] logins, String[] domens, long number, String[] professions){
+    Persona(String[] names, String[] families,  String[] professions, String[] logins, String[] domens, long number){
         count ++;
         setName(names[random.nextInt(names.length)]);
         setSecondName(families[random.nextInt(families.length)]);
@@ -95,9 +107,10 @@ public class Persona {
         setMobileNumber(number);
         setProfession(professions[random.nextInt(professions.length)]);
         setAge(random.nextInt(maxAge-minAge) + minAge);
+        setWorkCost(random.nextInt(maxWorkCost-minWorkCost) + minWorkCost);
         personaCount = count;
     }
-    Persona(String name, String family, String login, String domen, long number, String profession, int age){
+    Persona(String name, String family, String profession, String login, String domen, long number, int workCost, int age){
         count++;
         setName(name);
         setSecondName(family);
@@ -105,6 +118,7 @@ public class Persona {
         setEmail(login,domen);
         setMobileNumber(number);
         setProfession(profession);
+        setWorkCost(workCost);
         setAge(age);
         personaCount = count;
     }
@@ -117,11 +131,13 @@ public class Persona {
         setMobileNumber(89262664528L);
         setProfession("инженер");
         setAge(22);
+        setWorkCost(23000);
         personaCount = count;
     }
     static void printData(Persona persona) {
-        System.out.printf("№: %d - %s; Должность: %s; Телефон: %d; e-mail: %s; Возраст: %d.",
-                persona.personaCount, persona.getFullName(), persona.getProfession(), persona.getMobileNumber(), persona.getEmail(), persona.getAge());
+        System.out.printf("№: %d - %s; Должность: %s; Телефон: %d; e-mail: %s; Зарплата: %d руб.; Возраст: %d.",
+                persona.personaCount, persona.getFullName(), persona.getProfession(), persona.getMobileNumber(),
+                persona.getEmail(), persona.getWorkCost(), persona.getAge());
         System.out.println();
     }
 }

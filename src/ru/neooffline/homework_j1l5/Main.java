@@ -10,12 +10,12 @@ public class Main {
     static String[] professions = {"инженер", "программист", "начальник", "завхоз"};
 
     public static void main(String[] args) {
-        int personsCount = 100;
-        int personsMinAge = 78;
+        int personsCount = 25;
+        int personsMinAge = 40;
         int numberOfInterestedPerons =0;
-        Persona[] persons = new Persona[personsCount];
-                for (int i = 0; i < personsCount; i++) {
-            persons[i] = new Persona(names,families,logins,domens,89232464728L,professions);
+        Persona[] persons = new Persona[personsCount];//Создание массива элементов класса Persona
+                for (int i = 0; i < personsCount; i++) { //Инициализация массива
+            persons[i] = new Persona(names,families,professions,logins,domens,89232464728L);
                    }
         for (Persona element:persons) {
             if (element.getAge() >= personsMinAge) {
@@ -23,7 +23,9 @@ public class Main {
                 printData(element);
             }
         }
-        System.out.printf("Всего %d сотрудников из %d в возрасте больше %d лет.",numberOfInterestedPerons,persons.length,personsMinAge);
+        System.out.println("-------------------------------------");
+        System.out.printf("Всего %d сотрудников из %d в возрасте больше %d лет.",
+                numberOfInterestedPerons,persons.length,personsMinAge);
     }
 
 }
