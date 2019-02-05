@@ -20,7 +20,6 @@ public class Main {
         for (Persona element:persons) {
             if (element.getAge() >= personsMinAge) {
                 numberOfInterestedPerons++;
-//                System.out.print(element.getPersonaCount() + ": ");
                 printData(element);
             }
         }
