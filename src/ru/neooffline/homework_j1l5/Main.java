@@ -12,20 +12,20 @@ public class Main {
     public static void main(String[] args) {
         int personsCount = 25;
         int personsMinAge = 40;
-        int numberOfInterestedPerons =0;
+        int numberOfInterestedPersons =0;
         Persona[] persons = new Persona[personsCount];//Создание массива элементов класса Persona
                 for (int i = 0; i < personsCount; i++) { //Инициализация массива
-            persons[i] = new Persona(names,families,professions,logins,domens,89232464728L);
+                    persons[i] = new Persona(names,families,professions,logins,domens,89232464728L);
                    }
         for (Persona element:persons) {
             if (element.getAge() >= personsMinAge) {
-                numberOfInterestedPerons++;
+                numberOfInterestedPersons++;
                 printData(element);
             }
         }
         System.out.println("-------------------------------------");
-        System.out.printf("Всего %d сотрудников из %d в возрасте больше %d лет.",
-                numberOfInterestedPerons,persons.length,personsMinAge);
+        System.out.printf("Всего %d сотрудников из %d в возрасте старше %d лет.",
+                numberOfInterestedPersons,persons.length,personsMinAge);
     }
 
 }
