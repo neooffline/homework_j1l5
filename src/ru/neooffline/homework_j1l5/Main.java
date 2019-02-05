@@ -8,23 +8,25 @@ public class Main {
     static String[] logins = {"anon", "gevor", "anan", "kisss", "4op_12", "username"};
     static String[] domens = {"ya.ru", "bk.ru", "gmail.com"};
     static String[] professions = {"инженер", "программист", "начальник", "завхоз"};
+    static long[] number = {88002525535L,84957183422L,89163876543L};
 
     public static void main(String[] args) {
-        int personsCount = 100;
-        int personsMinAge = 78;
-        int numberOfInterestedPerons =0;
-        Persona[] persons = new Persona[personsCount];
-                for (int i = 0; i < personsCount; i++) {
-            persons[i] = new Persona(names,families,logins,domens,89232464728L,professions);
+        int personsCount = 25;
+        int personsMinAge = 40;
+        int numberOfInterestedPersons =0;
+        Persona[] persons = new Persona[personsCount];//Создание массива элементов класса Persona
+                for (int i = 0; i < personsCount; i++) { //Инициализация массива
+                    persons[i] = new Persona(names,families,professions,logins,domens,number);
                    }
         for (Persona element:persons) {
             if (element.getAge() >= personsMinAge) {
-                numberOfInterestedPerons++;
-//                System.out.print(element.getPersonaCount() + ": ");
+                numberOfInterestedPersons++;
                 printData(element);
             }
         }
-        System.out.printf("Всего %d сотрудников из %d в возрасте больше %d лет.",numberOfInterestedPerons,persons.length,personsMinAge);
+        System.out.println("-------------------------------------");
+        System.out.printf("Всего %d сотрудников из %d в возрасте старше %d лет.",
+                numberOfInterestedPersons,persons.length,personsMinAge);
     }
 
 }
