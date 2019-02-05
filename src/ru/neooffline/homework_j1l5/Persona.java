@@ -22,10 +22,10 @@ public class Persona {
     private String email;
     private long mobileNumber;
     protected int MIN_AGE = 18;
-    private int MAX_AGE = 80;
+    protected int MAX_AGE = 80;
     private int age;
-    private int MIN_WORK_COST = 15000;
-    private int MAX_WORK_COST = 250000;
+    protected int MIN_WORK_COST = 15000;
+    protected int MAX_WORK_COST = 250000;
     private int workCost;
     private static int count = 0;
     private int personaCount;
@@ -128,13 +128,13 @@ public class Persona {
      * @param domens - массив домена поты
      * @param number - номер телефона, можно тоже генерировавать но не стал
      */
-    Persona(String[] names, String[] families,  String[] professions, String[] logins, String[] domens, long number){
+    Persona(String[] names, String[] families,  String[] professions, String[] logins, String[] domens, long[] number){
         count ++;
         setName(names[random.nextInt(names.length)]);
         setSecondName(families[random.nextInt(families.length)]);
         splitFullName();
         setEmail(logins[random.nextInt(logins.length)],domens[random.nextInt(domens.length)]);
-        setMobileNumber(number);
+        setMobileNumber(number[random.nextInt(number.length)]);
         setProfession(professions[random.nextInt(professions.length)]);
         setAge(random.nextInt(MAX_AGE - MIN_AGE) + MIN_AGE);
         setWorkCost(random.nextInt(MAX_WORK_COST- MIN_WORK_COST) + MIN_WORK_COST);

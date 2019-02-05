@@ -8,6 +8,7 @@ public class Main {
     static String[] logins = {"anon", "gevor", "anan", "kisss", "4op_12", "username"};
     static String[] domens = {"ya.ru", "bk.ru", "gmail.com"};
     static String[] professions = {"инженер", "программист", "начальник", "завхоз"};
+    static long[] number = {88002525535L,84957183422L,89163876543L};
 
     public static void main(String[] args) {
         int personsCount = 25;
@@ -15,7 +16,7 @@ public class Main {
         int numberOfInterestedPersons =0;
         Persona[] persons = new Persona[personsCount];//Создание массива элементов класса Persona
                 for (int i = 0; i < personsCount; i++) { //Инициализация массива
-                    persons[i] = new Persona(names,families,professions,logins,domens,89232464728L);
+                    persons[i] = new Persona(names,families,professions,logins,domens,number);
                    }
         for (Persona element:persons) {
             if (element.getAge() >= personsMinAge) {
